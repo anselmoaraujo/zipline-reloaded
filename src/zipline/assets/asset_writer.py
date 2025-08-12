@@ -318,7 +318,7 @@ def _check_symbol_mappings(df, exchanges, asset_exchange):
             msg_component = "\n  ".join(str(data).splitlines())
             ambiguous[persymbol.name] = intersections, msg_component
 
-    mappings.groupby(["symbol", "country_code"], group_keys=False).apply(
+    mappings.groupby(["symbol", "country_code"], group_keys=False, include_groups=True).apply(
         check_intersections
     )
 
